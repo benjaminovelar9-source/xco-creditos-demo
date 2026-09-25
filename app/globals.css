@@ -1847,3 +1847,323 @@ textarea {
     font-size: 23px;
   }
 }
+/* =========================================================
+   XCO - FORMULARIOS
+========================================================= */
+
+.form-top-actions {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 9px;
+}
+
+.form-top-actions button {
+  border: 0;
+  cursor: pointer;
+}
+
+.client-form {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-section {
+  padding: 25px;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 35px;
+
+  border: 1px solid #20282b;
+  border-radius: 15px;
+  background: #0e1315;
+}
+
+.form-section-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.section-number {
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 9px;
+  background: rgba(52, 211, 153, 0.09);
+  color: #34d399;
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.form-section-title > div:last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section-title span {
+  color: #34d399;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.form-section-title h3 {
+  margin-top: 6px;
+  font-size: 15px;
+}
+
+.form-section-title p {
+  margin-top: 7px;
+  max-width: 190px;
+
+  color: #69756f;
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+/* CAMPOS */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.form-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-grid label > span {
+  color: #8c9892;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.form-grid input,
+.form-grid textarea,
+.form-grid select {
+  width: 100%;
+  min-height: 43px;
+  padding: 0 13px;
+
+  outline: none;
+
+  border: 1px solid #293236;
+  border-radius: 9px;
+
+  background: #111719;
+  color: #eef3f0;
+
+  font-size: 11px;
+
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.form-grid textarea {
+  min-height: 110px;
+  padding: 13px;
+  resize: vertical;
+}
+
+.form-grid input::placeholder,
+.form-grid textarea::placeholder {
+  color: #515c57;
+}
+
+.form-grid input:focus,
+.form-grid textarea:focus,
+.form-grid select:focus {
+  border-color: #34d399;
+  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.06);
+}
+
+.form-grid input[type="date"] {
+  color-scheme: dark;
+}
+
+.form-wide {
+  grid-column: span 2;
+}
+
+.form-full {
+  grid-column: 1 / -1;
+}
+
+/* IMPORTE */
+
+.money-input {
+  min-height: 43px;
+
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #293236;
+  border-radius: 9px;
+
+  background: #111719;
+  overflow: hidden;
+}
+
+.money-input:focus-within {
+  border-color: #34d399;
+  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.06);
+}
+
+.money-input b {
+  height: 43px;
+  width: 42px;
+
+  display: grid;
+  place-items: center;
+
+  border-right: 1px solid #293236;
+
+  color: #34d399;
+  font-size: 12px;
+}
+
+.money-input input {
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* MENSAJES */
+
+.form-message {
+  margin-top: 20px;
+  padding: 14px 17px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  border-radius: 10px;
+}
+
+.form-message strong {
+  font-size: 11px;
+}
+
+.form-message span {
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+.form-message.error {
+  border: 1px solid rgba(255, 121, 121, 0.25);
+  background: rgba(255, 121, 121, 0.06);
+  color: #ff9292;
+}
+
+.form-message.success {
+  border: 1px solid rgba(52, 211, 153, 0.25);
+  background: rgba(52, 211, 153, 0.06);
+  color: #55dca7;
+}
+
+/* FINAL FORMULARIO */
+
+.form-bottom {
+  padding: 20px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.form-bottom > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-bottom > div:first-child strong {
+  font-size: 10px;
+}
+
+.form-bottom > div:first-child span {
+  color: #69756f;
+  font-size: 8px;
+}
+
+.form-bottom > div:last-child {
+  display: flex;
+  gap: 9px;
+}
+
+.form-bottom button {
+  border: 0;
+  cursor: pointer;
+}
+
+.form-bottom button:disabled,
+.form-top-actions button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   RESPONSIVE FORMULARIOS
+========================================================= */
+
+@media (max-width: 900px) {
+  .form-section {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .form-section-title p {
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-top-actions {
+    width: 100%;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form-section {
+    padding: 18px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-wide,
+  .form-full {
+    grid-column: auto;
+  }
+
+  .form-bottom {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .form-bottom > div:last-child {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .form-top-actions,
+  .form-bottom > div:last-child {
+    grid-template-columns: 1fr;
+  }
+}
