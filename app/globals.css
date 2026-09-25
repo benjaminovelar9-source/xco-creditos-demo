@@ -1446,3 +1446,404 @@ textarea {
     grid-template-columns: 1fr;
   }
 }
+/* =========================================================
+   XCO - MODULOS / CLIENTES
+========================================================= */
+
+.module-page {
+  min-height: 100vh;
+  background: #090d0f;
+  color: #f4f7f5;
+}
+
+.module-topbar {
+  min-height: 85px;
+  padding: 16px 5%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  border-bottom: 1px solid #20282b;
+  background: #0d1214;
+}
+
+.module-topbar > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.module-topbar > div > span {
+  color: #68756f;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.module-topbar h1 {
+  font-size: 21px;
+}
+
+.back-link {
+  width: fit-content;
+  margin-bottom: 5px;
+
+  color: #34d399;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.module-content {
+  width: min(1350px, 92%);
+  margin: auto;
+  padding: 35px 0 70px;
+}
+
+.module-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 25px;
+}
+
+.module-heading > div:first-child > span {
+  color: #34d399;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.module-heading h2 {
+  margin-top: 8px;
+  font-size: 26px;
+}
+
+.module-heading p {
+  margin-top: 7px;
+  color: #77847e;
+  font-size: 12px;
+}
+
+.client-total {
+  padding: 11px 15px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  border: 1px solid #20282b;
+  border-radius: 10px;
+
+  background: #0e1315;
+}
+
+.client-total strong {
+  color: #34d399;
+  font-size: 21px;
+}
+
+.client-total span {
+  color: #78857f;
+  font-size: 9px;
+}
+
+/* RESUMEN */
+
+.client-summary {
+  margin-top: 27px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.client-summary article {
+  min-height: 105px;
+  padding: 18px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border: 1px solid #20282b;
+  border-radius: 13px;
+
+  background: #101518;
+}
+
+.client-summary span {
+  color: #718079;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.client-summary strong {
+  font-size: 26px;
+}
+
+.client-summary .summary-danger strong {
+  color: #ff7979;
+}
+
+/* TARJETA PRINCIPAL */
+
+.clients-card {
+  margin-top: 15px;
+
+  border: 1px solid #20282b;
+  border-radius: 15px;
+
+  background: #0e1315;
+  overflow: hidden;
+}
+
+.clients-toolbar {
+  min-height: 78px;
+  padding: 15px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  border-bottom: 1px solid #20282b;
+}
+
+.clients-toolbar > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.clients-toolbar h3 {
+  font-size: 15px;
+}
+
+.clients-toolbar > div:first-child span {
+  color: #68756f;
+  font-size: 9px;
+}
+
+.client-search {
+  width: min(360px, 100%);
+  min-height: 40px;
+  padding: 0 13px;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  border: 1px solid #293236;
+  border-radius: 9px;
+
+  background: #111719;
+}
+
+.client-search > span {
+  color: #68756f;
+}
+
+.client-search input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+  color: #eef3f0;
+
+  font-size: 11px;
+}
+
+.client-search input::placeholder {
+  color: #56625d;
+}
+
+/* TABLA */
+
+.clients-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.clients-table {
+  min-width: 1050px;
+}
+
+.clients-table-head,
+.clients-table-row {
+  padding: 0 20px;
+
+  display: grid;
+  grid-template-columns:
+    minmax(190px, 1.5fr)
+    110px
+    130px
+    minmax(130px, 1fr)
+    70px
+    110px
+    90px
+    55px;
+
+  align-items: center;
+  gap: 13px;
+}
+
+.clients-table-head {
+  min-height: 39px;
+
+  background: #101619;
+  color: #56625d;
+
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.clients-table-row {
+  min-height: 68px;
+  border-top: 1px solid #1b2225;
+
+  color: #8d9993;
+  font-size: 10px;
+}
+
+.clients-table-row:hover {
+  background: rgba(255, 255, 255, 0.012);
+}
+
+.client-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.client-list-avatar {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 10px;
+  background: #18201d;
+
+  color: #34d399;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.client-name-cell > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.client-name-cell strong {
+  color: #e8eeeb;
+  font-size: 10px;
+}
+
+.client-name-cell small {
+  color: #59655f;
+  font-size: 8px;
+}
+
+.clients-table-row > strong {
+  color: #dce3df;
+  font-size: 10px;
+}
+
+.client-status {
+  width: fit-content;
+  padding: 5px 8px;
+
+  border-radius: 20px;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.client-status.activo {
+  background: rgba(52, 211, 153, 0.09);
+  color: #34d399;
+}
+
+.client-status.mora {
+  background: rgba(255, 107, 107, 0.09);
+  color: #ff7979;
+}
+
+.client-status.neutral {
+  background: rgba(160, 170, 165, 0.08);
+  color: #8b9791;
+}
+
+.client-view {
+  color: #34d399;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.empty-clients {
+  padding: 50px 20px;
+  text-align: center;
+
+  color: #65716c;
+  font-size: 11px;
+}
+
+/* =========================================================
+   RESPONSIVE CLIENTES
+========================================================= */
+
+@media (max-width: 800px) {
+  .module-topbar {
+    padding: 15px 4%;
+  }
+
+  .module-content {
+    width: 92%;
+    padding-top: 25px;
+  }
+
+  .module-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .client-summary {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .clients-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .client-search {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .module-topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .module-topbar .admin-button {
+    width: 100%;
+  }
+
+  .client-summary article {
+    min-height: 95px;
+    padding: 14px;
+  }
+
+  .client-summary strong {
+    font-size: 23px;
+  }
+}
