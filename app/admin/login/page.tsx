@@ -23,7 +23,15 @@ export default function AdminLoginPage() {
     try {
       const {
         data: { session },
+        error,
       } = await supabase.auth.getSession();
+
+      if (error) {
+        console.error(
+          "ERROR COMPROBANDO SESION:",
+          error
+        );
+      }
 
       if (session) {
         router.replace("/admin");
@@ -31,7 +39,7 @@ export default function AdminLoginPage() {
       }
     } catch (error) {
       console.error(
-        "Error comprobando sesión:",
+        "ERROR COMPROBANDO SESION:",
         error
       );
     }
@@ -48,16 +56,33 @@ export default function AdminLoginPage() {
     setCargando(true);
 
     try {
-      const { error } =
-        await supabase.auth.signInWithPassword({
-          email: email.trim(),
-          password,
-        });
+      const {
+        data,
+        error,
+      } = await supabase.auth.signInWithPassword({
+        email: email.trim(),
+        password,
+      });
 
       if (error) {
-        setError(
-          "Correo o contraseña incorrectos."
+        console.error(
+          "SUPABASE LOGIN ERROR:",
+          error
         );
+
+        setError(
+          `Supabase: ${error.message}`
+        );
+
+        setCargando(false);
+        return;
+      }
+
+      if (!data.session) {
+        setError(
+          "Supabase no devolvió una sesión válida."
+        );
+
         setCargando(false);
         return;
       }
@@ -66,12 +91,12 @@ export default function AdminLoginPage() {
       router.refresh();
     } catch (error) {
       console.error(
-        "Error iniciando sesión:",
+        "ERROR INESPERADO LOGIN:",
         error
       );
 
       setError(
-        "Ocurrió un error al iniciar sesión."
+        "Ocurrió un error inesperado al iniciar sesión."
       );
 
       setCargando(false);
@@ -98,7 +123,9 @@ export default function AdminLoginPage() {
 
           <div>
             <strong>XCO</strong>
-            <span>Gestión de Créditos</span>
+            <span>
+              Gestión de Créditos
+            </span>
           </div>
         </div>
 
