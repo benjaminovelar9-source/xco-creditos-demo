@@ -3,7 +3,7 @@
 import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { supabase } from "@/lib/supabase";
+import { supabase } from "../../../lib/supabase";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -20,13 +20,20 @@ export default function AdminLoginPage() {
   }, []);
 
   async function comprobarSesion() {
-    const {
-      data: { session },
-    } = await supabase.auth.getSession();
+    try {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
 
-    if (session) {
-      router.replace("/admin");
-      return;
+      if (session) {
+        router.replace("/admin");
+        return;
+      }
+    } catch (error) {
+      console.error(
+        "Error comprobando sesión:",
+        error
+      );
     }
 
     setComprobando(false);
@@ -40,23 +47,35 @@ export default function AdminLoginPage() {
     setError("");
     setCargando(true);
 
-    const { error } =
-      await supabase.auth.signInWithPassword({
-        email: email.trim(),
-        password,
-      });
+    try {
+      const { error } =
+        await supabase.auth.signInWithPassword({
+          email: email.trim(),
+          password,
+        });
 
-    if (error) {
+      if (error) {
+        setError(
+          "Correo o contraseña incorrectos."
+        );
+        setCargando(false);
+        return;
+      }
+
+      router.replace("/admin");
+      router.refresh();
+    } catch (error) {
+      console.error(
+        "Error iniciando sesión:",
+        error
+      );
+
       setError(
-        "Correo o contraseña incorrectos."
+        "Ocurrió un error al iniciar sesión."
       );
 
       setCargando(false);
-      return;
     }
-
-    router.replace("/admin");
-    router.refresh();
   }
 
   if (comprobando) {
@@ -84,7 +103,9 @@ export default function AdminLoginPage() {
         </div>
 
         <div className="login-heading">
-          <span>ACCESO ADMINISTRATIVO</span>
+          <span>
+            ACCESO ADMINISTRATIVO
+          </span>
 
           <h1>Bienvenido</h1>
 
@@ -99,7 +120,9 @@ export default function AdminLoginPage() {
           onSubmit={iniciarSesion}
         >
           <label>
-            <span>Correo electrónico</span>
+            <span>
+              Correo electrónico
+            </span>
 
             <input
               type="email"
@@ -114,7 +137,9 @@ export default function AdminLoginPage() {
           </label>
 
           <label>
-            <span>Contraseña</span>
+            <span>
+              Contraseña
+            </span>
 
             <input
               type="password"
@@ -149,10 +174,14 @@ export default function AdminLoginPage() {
           <span>●</span>
 
           <div>
-            <strong>Acceso protegido</strong>
+            <strong>
+              Acceso protegido
+            </strong>
+
             <p>
-              La información del sistema requiere
-              una sesión administrativa válida.
+              La información del sistema
+              requiere una sesión
+              administrativa válida.
             </p>
           </div>
         </div>
@@ -179,24 +208,30 @@ export default function AdminLoginPage() {
 
           <p>
             Gestioná clientes, solicitudes,
-            créditos, cuotas y cobranzas desde
-            un panel centralizado.
+            créditos, cuotas y cobranzas
+            desde un panel centralizado.
           </p>
 
           <div className="login-side-items">
             <div>
               <strong>01</strong>
-              <span>Gestión de clientes</span>
+              <span>
+                Gestión de clientes
+              </span>
             </div>
 
             <div>
               <strong>02</strong>
-              <span>Control de créditos</span>
+              <span>
+                Control de créditos
+              </span>
             </div>
 
             <div>
               <strong>03</strong>
-              <span>Seguimiento de cobranzas</span>
+              <span>
+                Seguimiento de cobranzas
+              </span>
             </div>
           </div>
         </div>
